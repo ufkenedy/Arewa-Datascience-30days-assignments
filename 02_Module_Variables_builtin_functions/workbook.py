@@ -1,4 +1,3 @@
-# %% [markdown]
 # 
 # ## 💻 Exercises - Module 2
 # 
