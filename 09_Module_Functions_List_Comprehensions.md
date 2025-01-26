@@ -221,3 +221,69 @@ import keyword
 def is_valid_variable(var):
     return var.isidentifier() and not keyword.iskeyword(var)
 ```
+
+
+
+
+
+1. **Filter only negative and zero in the list using list comprehension**
+
+   ```python
+   numbers = [-4, -3, -2, -1, 0, 2, 4, 6]
+   negative_and_zero = [num for num in numbers if num <= 0]
+   print(negative_and_zero)  # Output: [-4, -3, -2, -1, 0]
+   ```
+
+2. **Flatten list_of_lists to a one-dimensional list**
+
+   ```python
+   list_of_lists = [[[1, 2, 3]], [[4, 5, 6]], [[7, 8, 9]]]
+   flattened_list = [num for sublist in list_of_lists for subsublist in sublist for num in subsublist]
+   print(flattened_list)  # Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+   ```
+
+3. **Create a list of tuples using list comprehension**
+
+   ```python
+   tuples_list = [(i, 1, i, i**2, i**3, i**4, i**5) for i in range(11)]
+   print(tuples_list)
+   ```
+
+4. **Flatten the list of countries to a new list**
+
+   ```python
+   countries = [[('Finland', 'Helsinki')], [('Sweden', 'Stockholm')], [('Norway', 'Oslo')]]
+   flattened_countries = [[country.upper(), country[:3].upper(), city.upper()] 
+                          for sublist in countries for (country, city) in sublist]
+   print(flattened_countries)  # Output: [['FINLAND', 'FIN', 'HELSINKI'], ['SWEDEN', 'SWE', 'STOCKHOLM'], ['NORWAY', 'NOR', 'OSLO']]
+   ```
+
+5. **Change list to a list of dictionaries**
+
+   ```python
+   countries = [[('Finland', 'Helsinki')], [('Sweden', 'Stockholm')], [('Norway', 'Oslo')]]
+   dict_countries = [{'country': country.upper(), 'city': city.upper()} 
+                     for sublist in countries for (country, city) in sublist]
+   print(dict_countries)
+   ```
+
+6. **Change list of lists to a list of concatenated strings**
+
+   ```python
+   names = [[('Asabeneh', 'Yetayeh')], [('David', 'Smith')], [('Donald', 'Trump')], [('Bill', 'Gates')]]
+   concatenated_names = [' '.join(name) for sublist in names for name in sublist]
+   print(concatenated_names)  # Output: ['Asabeneh Yetayeh', 'David Smith', 'Donald Trump', 'Bill Gates']
+   ```
+
+7. **Lambda function to solve a slope or y-intercept of linear functions**
+
+   To solve for the slope of a line given two points (x1, y1) and (x2, y2), you can use the formula (y2 - y1) / (x2 - x1):
+
+   ```python
+   slope = lambda x1, y1, x2, y2: (y2 - y1) / (x2 - x1) if x2 != x1 else None
+   print(slope(0, 0, 1, 1))  # Output: 1.0
+
+   # To find the y-intercept (b) of a line with slope m and passing through point (x1, y1): b = y1 - m * x1
+   y_intercept = lambda x1, y1, m: y1 - m * x1
+   print(y_intercept(0, 0, 1))  # Output: 0
+   ```
